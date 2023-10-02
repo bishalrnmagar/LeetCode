@@ -50,9 +50,31 @@ class Solution(object):
                 else: 
                     []
         print(list(numMap.values()))
+        for val in list(numMap.values()):
+            return nums[val] + nums[val+1] == target
 
 if __name__ == '__main__':
     sol = Solution()
-    nums = [3,2,4]
-    tar = 6
-    sol.twoSum(nums, tar)
+    test_obj = {
+        "testcase1": {
+            "nums": [3,2,4],
+            "tar": 6
+        },
+        "testcase2": {
+            "nums": [2,7,9,11],
+            "tar": 9
+        },
+         "testcase3": {
+            "nums": [2,7,9,11],
+            "tar": 20
+        },
+         "testcase4": {
+            "nums": [2,9,11],
+            "tar": 9
+        },
+    }
+    for testcase in test_obj:
+        if sol.twoSum(test_obj[testcase]["nums"], test_obj[testcase]["tar"]):
+            print("Test case passed")
+        else:
+            print("Test case failed")
